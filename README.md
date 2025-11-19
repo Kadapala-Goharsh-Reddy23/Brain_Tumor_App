@@ -75,3 +75,7 @@ No need to train model explicitly, it's already in codebase (BrainTumor.ipynb).
 Results
 -------
 It generalizes on unseen MRI images from the test set.
+
+Evaluation
+---------- 
+If confidence score < 0.60 then it is uncertain prediction otherwise it will predict actual class among four classes.
