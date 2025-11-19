@@ -1,0 +1,51 @@
+/* styles.css - place beside app.py (or in assets/) */
+
+/* Page background */
+.stApp {
+  background: linear-gradient(135deg, #141E30 0%, #243B55 100%) !important;
+  color: #FFFFFF;
+}
+
+/* Sidebar background */
+section[data-testid="stSidebar"] > div:first-child {
+  background-color: #0f1724 !important;
+  color: #e6eef6 !important;
+}
+
+/* Title styling */
+h1 {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Card-like boxes for images & results */
+.element-container, .stImage {
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+/* Button style */
+.stButton>button {
+  background-color: #FF4B4B;
+  color: white;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-weight: 600;
+}
+
+/* Table style */
+.stTable td, .stTable th {
+  color: #e6eef6 !important;
+}
+
+/* Warning/Success boxes override */
+.stAlertWarning {
+  background-color: rgba(255,200,60,0.12) !important;
+}
+.stAlertSuccess {
+  background-color: rgba(50,200,100,0.12) !important;
+}
+
+.st.logo {
+   box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
