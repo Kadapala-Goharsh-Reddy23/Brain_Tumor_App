@@ -39,23 +39,6 @@ Deep Learning: TensorFlow, Keras
 App UI: Streamlit  
 Utilities: NumPy, Pandas, PIL
 
-Project Structure
------------------
-Brain-Tumor-Classification/
-│
-├── dataset/
-│   ├── train/
-│   ├── test/
-│   ├── val/
-│
-├── models/
-|   |── BrainTumor.ipynb     (Building Model)
-│   ├── best_model.h5        (Output model)
-│
-├── Main_app.py              (Streamlit application)
-|── styles.css               (Styles for UI)
-└── README.txt
-
 Installation and setup
 ----------------------
 1. Install pip, pandas, numpy, tensorflow, keras, matplotlib and streamlit.
