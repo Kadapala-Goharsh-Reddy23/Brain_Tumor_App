@@ -85,7 +85,7 @@ if os.path.exists(logo_path):
         pass
 
 st.title("Brain Tumor Detector")
-st.caption("Simple desktop app for predicting the type of brain tumor. It is strictly for educational use, not a medical device.")
+st.caption("Simple desktop app for predicting the type of brain tumor if it is present. It is strictly for educational use, not a medical device.")
 
 # ----------------------------
 # Sidebar
