@@ -1,4 +1,3 @@
-# app.py
 import os
 import sys
 import streamlit as st
@@ -10,22 +9,16 @@ import io
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# ----------------------------
-# Helper: resource path (PyInstaller safe)
-# ----------------------------
 def resource_path(relative_path: str) -> str:
     """
     Get absolute path to resource, works for dev and for PyInstaller.
     """
     try:
-        base_path = sys._MEIPASS  # type: ignore[attr-defined]
+        base_path = sys._MEIPASS
     except Exception:
         base_path = os.path.abspath(".")
     return os.path.join(base_path, relative_path)
 
-# ----------------------------
-# Helper: load external CSS
-# ----------------------------
 def load_css(css_file: str = "styles.css"):
     path = resource_path(css_file)
     if os.path.exists(path):
@@ -33,7 +26,6 @@ def load_css(css_file: str = "styles.css"):
             css = f.read()
         st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
     else:
-        # optional: inject a minimal fallback so program does not break
         st.markdown(
             "<style>"
             "/* styles.css not found — using default look */"
@@ -42,9 +34,6 @@ def load_css(css_file: str = "styles.css"):
             unsafe_allow_html=True,
         )
 
-# ----------------------------
-# Page config (keep this before heavy UI)
-# ----------------------------
 st.set_page_config(
     page_title="Brain Tumor Detector",
     page_icon="icon3.jpeg",
@@ -53,14 +42,9 @@ st.set_page_config(
 )
 
 st.logo("icon3.jpeg", size = "large", icon_image="icon3.jpeg")
-# ----------------------------
-# Load CSS (CALL AFTER set_page_config)
-# ----------------------------
-load_css("styles.css")  # edit file name/path if needed
 
-# ----------------------------
-# Load model safely (cached)
-# ----------------------------
+load_css("styles.css")
+
 @st.cache_resource
 def load_tumor_model(path="best_model.h5"):
     return tf.keras.models.load_model(path, compile=False)
@@ -74,9 +58,6 @@ except Exception as e:
 
 CLASSES = ['glioma', 'meningioma', 'no_tumor', 'pituitary']
 
-# ----------------------------
-# Header (logo is optional)
-# ----------------------------
 logo_path = resource_path("assets/bt_128.png")
 if os.path.exists(logo_path):
     try:
@@ -87,9 +68,6 @@ if os.path.exists(logo_path):
 st.title("Brain Tumor Detector")
 st.caption("Simple desktop app for predicting the type of brain tumor if it is present. It is strictly for educational use, not a medical device.")
 
-# ----------------------------
-# Sidebar
-# ----------------------------
 with st.sidebar:
     st.header("How to use")
     st.write("""
@@ -102,9 +80,6 @@ with st.sidebar:
     st.markdown("---")
     st.caption("Model: MobileNetV2 (transfer learning).")
 
-# ----------------------------
-# Helper functions
-# ----------------------------
 def preprocess_pil(img: Image.Image, size=(224,224)):
     img = img.convert("RGB").resize(size)
     arr = img_to_array(img) / 255.0
@@ -119,9 +94,6 @@ def predict_image(img: Image.Image):
     top_idx = int(np.argmax(preds))
     return preds, top_idx
 
-# ----------------------------
-# Main UI
-# ----------------------------
 uploaded = st.file_uploader("Upload MRI images (JPG/JPEG/PNG)", accept_multiple_files=True, type=["jpg","jpeg","png"])
 
 if uploaded:
