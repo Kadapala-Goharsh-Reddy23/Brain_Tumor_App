@@ -41,7 +41,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-st.logo("icon3.jpeg", size = "large", icon_image="icon3.jpeg")
+st.logo("Main_icon.jpeg", size = "large", icon_image="Main_icon.jpeg")
 
 load_css("styles.css")
 
