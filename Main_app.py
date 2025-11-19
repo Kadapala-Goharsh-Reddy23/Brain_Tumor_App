@@ -36,7 +36,7 @@ def load_css(css_file: str = "styles.css"):
 
 st.set_page_config(
     page_title="Brain Tumor Detector",
-    page_icon="icon3.jpeg",
+    page_icon="Main_app.jpeg",
     layout="centered",
     initial_sidebar_state="expanded",
 )
