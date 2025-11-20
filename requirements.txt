@@ -1,0 +1,10 @@
+streamlit
+tensorflow
+numpy
+pillow
+matplotlib
+pandas
+openpyxl
+h5py
+protobuf
+opencv-python
